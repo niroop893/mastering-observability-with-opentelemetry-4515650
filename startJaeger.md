@@ -7,7 +7,7 @@ docker run --rm --name jaeger \
   -p 4318:4318 \
   jaegertracing/all-in-one:1.54
 
-# Ports
+# Portsv
 5778	HTTP	agent	serve configs (sampling, etc.)
 16686	HTTP	query	serve frontend
 4317	HTTP	collector	accept OpenTelemetry Protocol (OTLP) over gRPC

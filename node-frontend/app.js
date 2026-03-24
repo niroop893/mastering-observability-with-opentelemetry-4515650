@@ -20,6 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use("/favicon.ico", (req, res) => res.status(204).end());
 app.use("/", indexRouter());
 
 // catch 404 and forward to error handler
