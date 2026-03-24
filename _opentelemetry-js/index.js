@@ -1,11 +1,7 @@
 const { NodeSDK } = require("@opentelemetry/sdk-node");
-
+const {OTLPProtoTraceExporter} = require("@opentelemetry/exporter-trace-otlp-proto");
 const {
-  OTLPTraceExporter
-} = require("@opentelemetry/exporter-trace-otlp-proto");
-
-const {
-  getNodeAutoInstrumentations
+  getNodeAutoInstrumentations,
 } = require("@opentelemetry/auto-instrumentations-node");
 
 const { Resource } = require("@opentelemetry/resources");
@@ -21,6 +17,7 @@ module.exports = (serviceName, serviceVersion) => {
       [SEMRESATTRS_SERVICE_VERSION]: serviceVersion
     }),
     traceExporter: new OTLPTraceExporter(),
+    traceExporter: new OTLPProtoTraceExporter(),
     instrumentations: [
       getNodeAutoInstrumentations({
         "@opentelemetry/instrumentation-fs": { enabled: false }
